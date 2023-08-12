@@ -56,7 +56,7 @@ vectorizer.fit(train_data.text)
 model= RNN_model()
 # Load state dict
 model.load_state_dict(torch.load(
-    f= '/content/Models/pretrained_symtom_to_disease_model.pth',
+    f= 'pretrained_symtom_to_disease_model.pth',
     map_location= torch.device('cpu')
     )
 )
@@ -88,20 +88,28 @@ disease_advice = {
     'urinary tract infection': "Stay hydrated, take prescribed antibiotics, and maintain good hygiene. Consult a doctor for appropriate treatment."
 }
 
+howto= """Welcome to the <b>Medical Chatbot</b>, powered by Gradio.
+Currently, the chatbot can WELCOME YOU, PREDICT DISEASE based on your symptoms and SUGGEST POSSIBLE SOLUTIONS AND RECOMENDATIONS, and BID YOU FAREWELL.
+<br><br>
+Here's a quick guide to get you started:<br><br>
+<b>How to Start:</b> Simply type your messages in the textbox to chat with the Chatbot and press enter!<br><br>
+The bot will respond based on the best possible answers to your messages. For now, let's keep it SIMPLE as I'm working hard to enhance its capabilities in the future.
 
+"""
 
-# create gradio app
-title= 'Symptom To Disease Prediction App '
-description= 'A Natural Language App That can predict diseases based on your symptoms'
-article= 'Created at [To be uploaded].'
 
 # Create the gradio demo
-with gr.Blocks() as demo:
+with gr.Blocks(css = """#col_container { margin-left: auto; margin-right: auto;} #chatbot {height: 520px; overflow: auto;}""") as demo:
+  gr.HTML('<h1 align="center">Medical Chatbot: Your Virtual Health Guide 🌟🏥🤖"</h1>')
+  gr.HTML('<h3 align="center">To know more about this project click, <a href="https://github.com/Monsurat-Onabajo/Medical_chatbot" target="_blank">Here</a>')
+  with gr.Accordion("Follow these Steps to use the Gradio WebUI", open=True):
+      gr.HTML(howto)
   chatbot = gr.Chatbot()
   msg = gr.Textbox()
   clear = gr.ClearButton([msg, chatbot])
 
   def respond(message, chat_history):
+    # Random greetings in list format
     greetings = [
         "hello!",'hello', 'hii !', 'hi', "hi there!",  "hi there!", "heyy", 'good morning', 'good afternoon', 'good evening'
         "hey", "how are you", "how are you?", "how is it going", "how is it going?",
@@ -112,6 +120,7 @@ with gr.Blocks() as demo:
         "hi", "hi, what's new?",
         "hey, how's your day?", "hi, how have you been?", "greetings",
         ]
+    # Random Greetings responses
     responses = [
         "Thank you for using our medical chatbot. Please provide the symptoms you're experiencing, and I'll do my best to predict the possible disease.",
         "Hello! I'm here to help you with medical predictions based on your symptoms. Please describe your symptoms in as much detail as possible.",
@@ -126,6 +135,7 @@ with gr.Blocks() as demo:
         "Hi, I specialize in medical predictions based on symptoms. Kindly provide detailed symptoms for accurate disease predictions.",
         "Hello! I'm a medical chatbot with expertise in predicting diseases from symptoms. Please describe your symptoms explicitly to receive accurate insights.",
         ]
+    # Random goodbyes
     goodbyes = [
         "farewell!",'bye', 'goodbye','good-bye', 'good bye', 'bye', 'thank you', 'later', "take care!",
         "see you later!", 'see you', 'see ya', 'see-you', 'thanks', 'thank', 'bye bye', 'byebye'
@@ -137,6 +147,7 @@ with gr.Blocks() as demo:
         "later, gator!", "stay safe and goodbye!",
         "peace out!", "until next time!", "off I go!",
         ]
+    # Random Goodbyes responses
     goodbye_replies = [
         "Take care of yourself! If you have more questions, don't hesitate to reach out.",
         "Stay well! Remember, I'm here if you need further medical advice.",
@@ -161,7 +172,7 @@ with gr.Blocks() as demo:
         "Goodbye! Stay well and remember, I'm here to assist you with medical queries.",
     ]
 
-    
+    # Create couple of if-else statements to capture/mimick peoples's Interaction
     if message.lower() in greetings:
       bot_message= random.choice(responses)
     elif message.lower() in goodbyes:
@@ -183,3 +194,4 @@ with gr.Blocks() as demo:
   msg.submit(respond, [msg, chatbot], [msg, chatbot])
 # Launch the demo
 demo.launch()
+
