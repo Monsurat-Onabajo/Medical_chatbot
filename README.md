@@ -33,9 +33,11 @@ The project will cover the development of a conversational AI chatbot focused on
 - **Web Interface (Gradio):** Provided an intuitive platform for users to interact with the chatbot.
 - **Deployment:** This model was deployed on hugging face space
 
+## Deployment
+To use the model Live, Click [Here](https://huggingface.co/spaces/OnabajoMonsurat/Medical_Diagnosis_Chatbot/blob/main/app.py)
+
 ## Contact Information
 For inquiries or more information about the Medical Chatbot project, please contact Onabajo Monsurat at Onabajofunmilayo@gmail.com.
 
-## Deployment
-To use the model Live, Click [Here](https://huggingface.co/spaces/OnabajoMonsurat/Medical_Diagnosis_Chatbot/blob/main/app.py)
+
 
