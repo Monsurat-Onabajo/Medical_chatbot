@@ -31,7 +31,7 @@ The project will cover the development of a conversational AI chatbot focused on
 - **Machine Learning - (Pytorch):** Was used to enhance the accuracy and effectiveness of symptom analysis.
 - **Backend Development (Python):** Was used to manage user data and responses.
 - **Web Interface (Gradio):** Provided an intuitive platform for users to interact with the chatbot.
-- **Deployment:** 
+- **Deployment:** This model was deployed on hugging face space
 
 ## Contact Information
 For inquiries or more information about the Medical Chatbot project, please contact Onabajo Monsurat at Onabajofunmilayo@gmail.com.
