@@ -34,7 +34,7 @@ The project will cover the development of a conversational AI chatbot focused on
 - **Deployment:** This model was deployed on hugging face space
 
 ## Deployment
-To use the model Live, Click [Here](https://huggingface.co/spaces/OnabajoMonsurat/Medical_Diagnosis_Chatbot)
+To use the model Live: Click [Here](https://huggingface.co/spaces/OnabajoMonsurat/Medical_Diagnosis_Chatbot)
 
 ## Contact Information
 For inquiries or more information about the Medical Chatbot project, please contact Onabajo Monsurat at Onabajofunmilayo@gmail.com.
